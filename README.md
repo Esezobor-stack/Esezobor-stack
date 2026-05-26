@@ -1,1 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esezobor Victor Longe | Data Analyst & HR Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E53935;
+    --dark: #2a2a2a;
+    --dark2: #1a1a1a;
+    --gray: #444;
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    --accent: #c0392b;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark2);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 60px;
+    background: rgba(26,26,26,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(229,57,53,0.2);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    color: var(--red); letter-spacing: 2px; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--red); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 60px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(229,57,53,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(229,57,53,0.15);
+    border: 1px solid rgba(229,57,53,0.4);
+    color: var(--red); padding: 6px 16px;
+    border-radius: 20px; font-size: 0.78rem;
+    font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.8rem; font-weight: 800;
+    line-height: 1.05; margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  h1 span { color: var(--red); }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.6);
+    font-weight: 300; line-height: 1.7; max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .hero-stats {
+    display: flex; gap: 40px; margin-bottom: 40px;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem; font-weight: 800; color: var(--red);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red); color: white;
+    padding: 14px 32px; border-radius: 4px;
+    text-decoration: none; font-weight: 600;
+    font-size: 0.9rem; letter-spacing: 0.5px;
+    transition: all 0.3s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 32px; border-radius: 4px;
+    text-decoration: none; font-weight: 500;
+    font-size: 0.9rem; letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+  /* HERO IMAGE SIDE */
+  .hero-image-side {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+  }
+  .photo-frame {
+    width: 360px; height: 420px;
+    position: relative;
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute; top: -12px; left: -12px;
+    right: -12px; bottom: -12px;
+    border: 2px solid rgba(229,57,53,0.3);
+    border-radius: 6px;
+  }
+  .photo-frame::after {
+    content: '';
+    position: absolute; bottom: -24px; right: -24px;
+    width: 120px; height: 120px;
+    background: var(--red); opacity: 0.15;
+    border-radius: 4px;
+  }
+  .profile-photo {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    border-radius: 4px;
+    filter: grayscale(15%);
+    position: relative; z-index: 2;
+  }
+  .floating-badge {
+    position: absolute; bottom: -10px; left: -20px;
+    background: var(--red); color: white;
+    padding: 12px 20px; border-radius: 4px;
+    z-index: 10;
+  }
+  .floating-badge .badge-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem; font-weight: 800; line-height: 1;
+  }
+  .floating-badge .badge-text {
+    font-size: 0.7rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 1px;
+    opacity: 0.9;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 90px 60px; }
+  .section-tag {
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--red); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.6rem; font-weight: 800;
+    line-height: 1.1; margin-bottom: 50px;
+  }
+  h2 span { color: var(--red); }
+
+  /* ABOUT */
+  .about { background: #1f1f1f; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(255,255,255,0.75); margin-bottom: 20px;
+  }
+  .about-details { display: grid; gap: 16px; }
+  .detail-item { display: flex; gap: 12px; align-items: flex-start; }
+  .detail-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: rgba(229,57,53,0.15);
+    border: 1px solid rgba(229,57,53,0.3);
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+  .detail-label { font-size: 0.75rem; color: var(--red); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .detail-val { font-size: 0.95rem; color: rgba(255,255,255,0.8); }
+
+  /* EXPERIENCE */
+  .experience { background: var(--dark2); }
+  .timeline { display: grid; gap: 0; }
+  .timeline-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 40px; padding: 36px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-left { }
+  .timeline-date {
+    font-size: 0.8rem; color: var(--red); font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .timeline-company {
+    font-size: 0.85rem; color: rgba(255,255,255,0.5);
+    font-style: italic; line-height: 1.4;
+  }
+  .timeline-right { }
+  .timeline-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 12px; color: white;
+  }
+  .timeline-desc {
+    font-size: 0.92rem; color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+  .timeline-dots {
+    position: absolute; left: 196px; top: 42px;
+    width: 8px; height: 8px;
+    background: var(--red); border-radius: 50%;
+  }
+
+  /* SKILLS */
+  .skills { background: #1f1f1f; }
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .skill-category-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    color: rgba(255,255,255,0.5); text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 24px;
+    padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .skill-bar-item { margin-bottom: 20px; }
+  .skill-bar-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .skill-name { font-size: 0.9rem; font-weight: 500; }
+  .skill-pct { font-size: 0.8rem; color: var(--red); font-weight: 600; }
+  .skill-bar-bg {
+    height: 4px; background: rgba(255,255,255,0.08);
+    border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--red), #ff6b6b);
+    border-radius: 2px;
+    transition: width 1.5s ease;
+  }
+  .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tool-chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 14px; border-radius: 4px;
+    font-size: 0.85rem; text-align: center;
+    color: rgba(255,255,255,0.75);
+    transition: all 0.3s;
+  }
+  .tool-chip:hover {
+    background: rgba(229,57,53,0.1);
+    border-color: rgba(229,57,53,0.4);
+    color: white;
+  }
+
+  /* PROJECTS / DATA WORK */
+  .projects { background: var(--dark2); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .project-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 32px 28px;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px; background: var(--red);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover {
+    border-color: rgba(229,57,53,0.3);
+    background: rgba(229,57,53,0.04);
+    transform: translateY(-4px);
+  }
+  .project-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem; font-weight: 800;
+    color: rgba(229,57,53,0.2); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 12px; color: white;
+  }
+  .project-desc {
+    font-size: 0.88rem; color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .ptag {
+    font-size: 0.72rem; background: rgba(229,57,53,0.12);
+    color: var(--red); padding: 3px 10px; border-radius: 20px;
+    font-weight: 600; letter-spacing: 0.5px;
+  }
+
+  /* EDUCATION */
+  .education { background: #1f1f1f; }
+  .edu-card {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 28px; align-items: center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 32px;
+    max-width: 600px;
+  }
+  .edu-year-box {
+    background: var(--red);
+    padding: 14px 20px; border-radius: 4px; text-align: center;
+    min-width: 90px;
+  }
+  .edu-year { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 800; }
+  .edu-deg {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem; font-weight: 700; margin-bottom: 6px;
+  }
+  .edu-school { font-size: 0.9rem; color: rgba(255,255,255,0.55); }
+  .edu-highlight {
+    margin-top: 20px; padding: 16px 20px;
+    background: rgba(229,57,53,0.08); border-radius: 4px;
+    border-left: 3px solid var(--red); max-width: 600px;
+    font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--dark2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-info { display: grid; gap: 20px; }
+  .contact-item { display: flex; gap: 16px; align-items: center; }
+  .contact-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: rgba(229,57,53,0.1);
+    border: 1px solid rgba(229,57,53,0.3);
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .contact-label { font-size: 0.75rem; color: var(--red); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-val { font-size: 0.95rem; color: rgba(255,255,255,0.8); }
+  .contact-cta {
+    background: rgba(229,57,53,0.08);
+    border: 1px solid rgba(229,57,53,0.2);
+    border-radius: 6px; padding: 36px;
+  }
+  .contact-cta h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .contact-cta p {
+    font-size: 0.92rem; color: rgba(255,255,255,0.6);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111; padding: 30px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer .foot-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem; font-weight: 700; color: var(--red);
+  }
+  footer p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  /* DIVIDER LINE */
+  .red-line {
+    height: 2px; background: linear-gradient(90deg, var(--red), transparent);
+    margin: 0;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.25s; opacity: 0; }
+  .delay-3 { animation-delay: 0.4s; opacity: 0; }
+  .delay-4 { animation-delay: 0.55s; opacity: 0; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-image-side { margin-top: 40px; }
+    section { padding: 60px 24px; }
+    .about-grid, .skills-layout, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+    .timeline-dots { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    footer { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">EVL</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<img class="profile-photo" src="photo.png" alt="Esezobor Victor Longe" />
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-tag fade-up delay-1">Data Analyst · HR Professional · Nigeria</div>
+    <h1 class="fade-up delay-2">Esezobor<br><span>Victor</span><br>Longe</h1>
+    <p class="hero-sub fade-up delay-3">
+      Expert in synthesizing complex data into actionable insights and managing full-cycle recruitment & HR operations. Committed to driving institutional transformation and social impact through integrity and excellence.
+    </p>
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Roles Held</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Industries</div>
+      </div>
+    </div>
+    <div class="hero-btns fade-up delay-4">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-image-side fade-up delay-3">
+    <div class="photo-frame">
+      <img class="profile-photo" src="data:image/png;base64,PHOTO_PLACEHOLDER" alt="Esezobor Victor Longe" />
+      <div class="floating-badge">
+        <div class="badge-num">B.Sc</div>
+        <div class="badge-text">Economics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="section-tag">About Me</p>
+  <h2>Turning Data Into <span>Decisions</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I am a versatile professional with a strong foundation in financial services, data analysis, inventory management, and human resources. With over 8 years of cross-industry experience, I specialise in synthesizing complex datasets into clear, actionable insights that drive strategic outcomes.
+      </p>
+      <p>
+        My career spans public sector administration, investment management, research & development, and HR operations — giving me a unique ability to bridge the gap between data-driven decision-making and people-centred leadership.
+      </p>
+      <p>
+        I am passionate about leveraging modern analytics tools and best practices to solve real-world problems, streamline processes, and foster organizational transformation.
+      </p>
+    </div>
+    <div class="about-details">
+      <div class="detail-item">
+        <div class="detail-icon">📧</div>
+        <div>
+          <div class="detail-label">Email</div>
+          <div class="detail-val">evlonge@gmail.com</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">📱</div>
+        <div>
+          <div class="detail-label">Phone</div>
+          <div class="detail-val">+234 708 778 8560</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">📍</div>
+        <div>
+          <div class="detail-label">Location</div>
+          <div class="detail-val">Nigeria</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">🎓</div>
+        <div>
+          <div class="detail-label">Education</div>
+          <div class="detail-val">B.Sc Economics — Covenant University (2014–2018)</div>
+        </div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">💼</div>
+        <div>
+          <div class="detail-label">Available For</div>
+          <div class="detail-val">Data Analysis · HR Management · Consulting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <p class="section-tag">Career History</p>
+  <h2>Professional <span>Experience</span></h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2025 – 2026</div>
+        <div class="timeline-company">Edo State Hospitals<br>Management Agency</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">Human Resources Administrator</div>
+        <div class="timeline-desc">
+          Managed full-cycle recruitment, onboarding, and employment contracts for a large public healthcare institution. Oversaw HRIS databases, payroll processing, and benefits administration. Served as the primary contact point for all HR policy inquiries, ensuring compliance and smooth organisational workflows.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Recruitment</span>
+          <span class="ptag">HRIS</span>
+          <span class="ptag">Payroll</span>
+          <span class="ptag">Policy</span>
+          <span class="ptag">Public Sector</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2022 – 2025</div>
+        <div class="timeline-company">Growth and Development<br>Asset Management Limited</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">Investment / Credit Officer</div>
+        <div class="timeline-desc">
+          Directed investment portfolio management and conducted in-depth market analysis. Performed credit risk assessments and detailed account reconciliations. Evaluated financial data to maximise client investment returns and inform strategic recommendations to senior management.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Portfolio Management</span>
+          <span class="ptag">Credit Risk</span>
+          <span class="ptag">Market Analysis</span>
+          <span class="ptag">Financial Data</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2021 – 2022</div>
+        <div class="timeline-company">Cooperative Mortgage<br>Bank Limited</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">R&D Officer / Data Analyst</div>
+        <div class="timeline-desc">
+          Led market research initiatives and strategic planning for product growth and development. Developed funding proposals and business cases, analysed multi-source datasets, and collaborated directly with C-suite executives on organisational strategy and direction.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Market Research</span>
+          <span class="ptag">Data Analysis</span>
+          <span class="ptag">Strategic Planning</span>
+          <span class="ptag">Reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2020</div>
+        <div class="timeline-company">Scagric Investment<br>Limited</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">Inventory Manager</div>
+        <div class="timeline-desc">
+          Coordinated warehouse logistics, labour management, and transport operations. Maintained accurate stock records and prepared essential documentation including waybills, invoices, and monthly operational reports for management review.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Logistics</span>
+          <span class="ptag">Inventory</span>
+          <span class="ptag">Reporting</span>
+          <span class="ptag">Operations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2019 – 2020</div>
+        <div class="timeline-company">Lushville Hotel<br>& Suites</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">Customer Support Officer</div>
+        <div class="timeline-desc">
+          Oversaw digital booking schedules and coordinated front-end operations for seamless guest service delivery. Managed accurate digital transaction logs and prepared daily billing documentation to ensure financial accuracy.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Customer Service</span>
+          <span class="ptag">Digital Systems</span>
+          <span class="ptag">Billing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-date">2018 – 2019</div>
+        <div class="timeline-company">State Ministry of Agriculture<br>Asaba, Nigeria (NYSC)</div>
+      </div>
+      <div class="timeline-dots"></div>
+      <div class="timeline-right">
+        <div class="timeline-role">Executive Assistant (NYSC)</div>
+        <div class="timeline-desc">
+          Synthesized operational data into structured monthly reports for senior ministry officials. Digitised essential documents into categorised operational folders. Provided comprehensive administrative support including schedule management, meeting coordination, correspondence handling, and smooth office operations.
+        </div>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="ptag">Data Reporting</span>
+          <span class="ptag">Administration</span>
+          <span class="ptag">Government</span>
+          <span class="ptag">Documentation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <p class="section-tag">Competencies</p>
+  <h2>Skills & <span>Tools</span></h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-category-title">Core Skills</div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">Data Reporting & Visualisation</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">Business Writing & Proposals</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">HR Operations & Recruitment</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">Customer Support</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">Problem Solving & Analysis</span><span class="skill-pct">87%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:87%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-top"><span class="skill-name">Prompt Engineering</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-category-title">Tools & Platforms</div>
+      <div class="tools-grid">
+        <div class="tool-chip">📊 Power BI</div>
+        <div class="tool-chip">🗄️ SQL</div>
+        <div class="tool-chip">📈 Excel</div>
+        <div class="tool-chip">☁️ Salesforce</div>
+        <div class="tool-chip">🎨 Canva</div>
+        <div class="tool-chip">📝 Notion</div>
+        <div class="tool-chip">💬 Slack</div>
+        <div class="tool-chip">🤖 Claude AI</div>
+        <div class="tool-chip">✅ Asana</div>
+        <div class="tool-chip">📅 Google Cal</div>
+        <div class="tool-chip">📋 Trello</div>
+        <div class="tool-chip">🔧 HRIS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- PROJECTS / FOCUS AREAS -->
+<section class="projects" id="projects">
+  <p class="section-tag">Focus Areas</p>
+  <h2>Key <span>Project Areas</span></h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">Investment Portfolio Analytics</div>
+      <div class="project-desc">
+        Building and maintaining investment dashboards, conducting credit risk modelling, and generating insight reports to optimise client portfolio returns in the financial services sector.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">Finance</span>
+        <span class="ptag">Excel</span>
+        <span class="ptag">Risk Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">HR Data & Workforce Reporting</div>
+      <div class="project-desc">
+        Designing HR metrics dashboards, payroll reconciliation systems, and workforce analytics reports for public healthcare organisations to support strategic HR decisions.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">HRIS</span>
+        <span class="ptag">Power BI</span>
+        <span class="ptag">Payroll</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">Market Research & Competitor Analysis</div>
+      <div class="project-desc">
+        Conducting structured market research, competitor benchmarking, and product development analysis to support strategic planning and funding proposals for financial institutions.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">Research</span>
+        <span class="ptag">Strategy</span>
+        <span class="ptag">Banking</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-title">Operational Data Reporting</div>
+      <div class="project-desc">
+        Synthesising operational and inventory data into structured monthly reports for senior stakeholders in both public sector and commercial environments — including the State Ministry of Agriculture.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">Reporting</span>
+        <span class="ptag">SQL</span>
+        <span class="ptag">Operations</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">05</div>
+      <div class="project-title">Recruitment & Talent Pipelines</div>
+      <div class="project-desc">
+        Managing end-to-end recruitment workflows, onboarding programmes, and talent tracking systems for institutional clients to ensure efficient talent acquisition and retention.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">Recruitment</span>
+        <span class="ptag">Asana</span>
+        <span class="ptag">Onboarding</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">06</div>
+      <div class="project-title">AI-Assisted Data Workflows</div>
+      <div class="project-desc">
+        Leveraging prompt engineering and AI tools (including Claude) to automate data workflows, generate structured business reports, and accelerate insight delivery for diverse clients.
+      </div>
+      <div class="project-tags">
+        <span class="ptag">AI Tools</span>
+        <span class="ptag">Claude</span>
+        <span class="ptag">Automation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <p class="section-tag">Academic Background</p>
+  <h2>Education & <span>Credentials</span></h2>
+  <div class="edu-card">
+    <div class="edu-year-box">
+      <div class="edu-year">2014<br>–<br>2018</div>
+    </div>
+    <div>
+      <div class="edu-deg">Bachelor of Science — Economics</div>
+      <div class="edu-school">Covenant University, Nigeria</div>
+    </div>
+  </div>
+  <div class="edu-highlight">
+    <strong>Continuing Development:</strong> Actively expanding expertise in data analytics, AI-assisted workflows, and HR technology through professional development and hands-on application of tools including SQL, Power BI, and modern prompt engineering techniques.
+  </div>
+</section>
+
+<div class="red-line"></div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-tag">Let's Connect</p>
+  <h2>Get In <span>Touch</span></h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">evlonge@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">Phone / WhatsApp</div>
+          <div class="contact-val">+234 708 778 8560</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Nigeria (Open to Remote)</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">Open To</div>
+          <div class="contact-val">Data Analysis · HR Management · Freelance Consulting</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <h3>Ready to collaborate?</h3>
+      <p>
+        Whether you need data-driven insights, HR support, or strategic analysis — I bring a cross-industry perspective and a commitment to delivering measurable results. Let's discuss how I can add value to your organisation.
+      </p>
+      <a href="mailto:evlonge@gmail.com" class="btn-primary">Send an Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-name">Esezobor Victor Longe</div>
+  <p>Data Analyst · HR Professional · Nigeria</p>
+  <p>© 2025 All Rights Reserved</p>
+</footer>
+
+<script>
+// Inject the photo (handled by server-side substitution above)
+// Animate skill bars on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.getAttribute('data-width');
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+  const w = bar.style.width;
+  bar.setAttribute('data-width', w);
+  bar.style.width = '0%';
+  observer.observe(bar);
+});
+
+// Nav active state
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  links.forEach(l => {
+    l.style.color = l.getAttribute('href').includes(current) ? '#E53935' : '';
+  });
+});
+</script>
+</body>
+</html>
